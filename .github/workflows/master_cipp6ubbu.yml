@@ -13,12 +13,13 @@ env:
   AZURE_FUNCTIONAPP_PACKAGE_PATH: '.' # set this to the path to your web app project, defaults to the repository root
 
 jobs:
-  build-and-deploy:
+  deploy:
     runs-on: windows-latest
+    
     steps:
       - name: 'Checkout GitHub Action'
         uses: actions/checkout@v4
-
+      
       - name: 'Run Azure Functions Action'
         uses: Azure/functions-action@v1
         id: fa
@@ -26,4 +27,4 @@ jobs:
           app-name: 'cipp6ubbu'
           slot-name: 'Production'
           package: ${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_8B1260ED931C454F966196E02B505F4D }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_52DA296FCBAD41D79343A8C4EB863C85 }}
